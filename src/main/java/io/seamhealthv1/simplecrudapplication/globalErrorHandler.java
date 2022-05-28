@@ -3,7 +3,6 @@ package io.seamhealthv1.simplecrudapplication;
 
 import io.seamhealthv1.simplecrudapplication.response.errorMessage;
 import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.dao.DuplicateKeyException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -26,20 +26,18 @@ public class DoctorService {
     @Autowired
     private final UtilityFunction utilityFunction;
 
-    @Autowired
-    private final io.seamhealthv1.simplecrudapplication.utility.generateDateTime generateDateTime;
+
 
     /**
      * @param doctorRepository
      * @param addressRepository
      * @param utilityFunction
-     * @param generateDateTime
      */
-    public DoctorService(DoctorRepository doctorRepository, AddressRepository addressRepository, UtilityFunction utilityFunction, io.seamhealthv1.simplecrudapplication.utility.generateDateTime generateDateTime) {
+    public DoctorService(DoctorRepository doctorRepository, AddressRepository addressRepository, UtilityFunction utilityFunction) {
         this.doctorRepository = doctorRepository;
         this.addressRepository = addressRepository;
         this.utilityFunction = utilityFunction;
-        this.generateDateTime = generateDateTime;
+
     }
 
     /**
@@ -51,7 +49,7 @@ public class DoctorService {
     public Doctors createAccount(Doctors doctor){
         String doctorId = utilityFunction.generatedId(); // generate unique id
         String addressId = utilityFunction.generatedId(); // generate unique id
-        String createdDate = generateDateTime.generateDate();
+        String createdDate = utilityFunction.generateDate();
         doctor.setDoctorId(doctorId);
         doctor.setAddressId(addressId);
         doctor.getAddress().setAddressId(addressId);
@@ -97,7 +95,7 @@ public class DoctorService {
      */
     @Transactional
     public void editAddress(Address address){
-        String updateDate = generateDateTime.generateDate();
+        String updateDate = utilityFunction.generateDate();
         address.setDateUpdated(updateDate);
         addressRepository.updateAddress(address.getHomeAddress(), address.getLga(),address.getState(), address.getDoctorId(), address.getDateUpdated());
     }

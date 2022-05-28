@@ -1,0 +1,14 @@
+############################################################################################################################################################################dennis
+#Springboot version
+2.7.0
+
+#Database
+create a new database and call it any name
+replace it with the name at the end of datasource url
+Ensure to change your postgres password and username in application.properties
+
+#Others
+Port: you can change the port to whatever you want
+
+
+
